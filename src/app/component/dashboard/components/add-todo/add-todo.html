@@ -1,1 +1,8 @@
-<p>add-todo works!</p>
+<div>
+<label for="title">Add a Todo</label>
+<input type="text" id="title" name="title" [(ngModel)]="title" placeholder="Enter a Todo" class="form-control">
+<label for="description">Add a Description</label>
+<input type="text" id="description" name="description" [(ngModel)]="description" placeholder="Enter a Description" class="form-control">
+<button (click)="addTodo()" class="btn btn-primary">Add Todo</button>   
+
+</div>

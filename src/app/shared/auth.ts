@@ -10,7 +10,9 @@ export class Auth {
   private router = inject(Router);
 
   login(email: string, password: string) {
-    signInWithEmailAndPassword(this.fireauth, email, password).then(() => {
+    signInWithEmailAndPassword(this.fireauth, email, password).then((result) => {
+      localStorage.setItem("userId", result.user.uid)
+      localStorage.setItem("userEmail",result.user.email || '');
       localStorage.setItem('token', 'true');
       this.router.navigate(['dashboard']);
     }, err => {
@@ -38,5 +40,14 @@ export class Auth {
       alert(`Failed to Sign Out: ${err.message}`);
       this.router.navigate(['dashboard']);
     })
+  }
+
+  getUserId()
+  {
+     return localStorage.getItem("userId");
+  }
+
+  getUserEmail(){
+    return localStorage.getItem("userEmail")
   }
 }
