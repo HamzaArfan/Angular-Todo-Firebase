@@ -5,11 +5,12 @@ import { Dashboard } from './component/dashboard/dashboard';
 import { Home } from './component/dashboard/components/home/home';
 import { AddTodo } from './component/dashboard/components/add-todo/add-todo';
 import { DeleteTodos } from './component/dashboard/components/delete-todos/delete-todos';
+import { AuthGuard } from './shared/auth.guard';
 export const routes: Routes = [
 
     {path:"", redirectTo:'login', pathMatch:'full' },
     {path:'login' , component:Login},
-    {path:'dashboard', component:Dashboard,
+    {path:'dashboard', component:Dashboard, canActivate:[AuthGuard],
      children :
     [
         {path:'home' , component:Home},

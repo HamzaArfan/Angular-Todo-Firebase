@@ -15,4 +15,5 @@ SignOut()
 {
   this.auth.signOut();
 }
+
 }

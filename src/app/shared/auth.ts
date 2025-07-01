@@ -35,6 +35,8 @@ export class Auth {
     signOut(this.fireauth).then(() => {
       alert("User Sucessfully Signed Out")
       localStorage.removeItem("token");
+      localStorage.removeItem("userId");
+      localStorage.removeItem("userEmail");
       this.router.navigate(['/'])
     }, err => {
       alert(`Failed to Sign Out: ${err.message}`);
