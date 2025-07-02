@@ -1,1 +1,19 @@
-<p>home works!</p>
+<h1>Displaying Todos</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Created At</th>
+        <th>Completed</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let todo of todos">
+        <td>{{todo.id}}</td>
+        <td>{{todo.title}}</td>
+        <td>{{todo.description}}</td>
+        <td>{{todo.createdAt.toDate() | date:'dd/MM/yyyy'}}</td>
+        <td>{{todo.completed}}</td>
+        <td><button class ="btn btn-primary"(click)="setTodoCompleted(todo.id!)">Mark as Completed</button></td>
+    </tr>
+</table>

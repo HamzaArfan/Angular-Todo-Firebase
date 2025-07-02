@@ -21,6 +21,8 @@ export class AddTodo {
     if(userID)
     {
     this.todoService.addTodo(this.title, this.description, userID);
+    this.title = '';
+    this.description  = ''
     }
     else{
       console.log("UserID is null");

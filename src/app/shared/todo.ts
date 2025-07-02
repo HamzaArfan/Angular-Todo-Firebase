@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { collection, Firestore ,addDoc, deleteDoc, doc } from '@angular/fire/firestore';
+import { collection, Firestore ,addDoc, deleteDoc, doc , query, where, collectionData, Timestamp, updateDoc } from '@angular/fire/firestore';
 import { Todo as TodoModel } from './todo.model';
 
 @Injectable({
@@ -20,11 +20,16 @@ export class Todo
       title,
       description,
       userId,
-      createdAt: new Date(),
+      createdAt: Timestamp.now(),
       completed: false
     }
-    addDoc(this.todoCollection , todoData);
-
+    addDoc(this.todoCollection , todoData).then(()=>
+    {
+      alert("Todo Added Sucessfully");
+    }, err =>
+    {
+alert("failed to add todo")
+    });
   }
   deleteTodos(todoId: string)
   {  
@@ -35,10 +40,22 @@ export class Todo
     });
   }
 
-  getTodos()
+  getTodos(userId : string)
   {
-  
+    const getUserTodos = query(this.todoCollection , where ('userId','==', userId));
+    const dataTodo= collectionData(getUserTodos , {idField: 'id'});
+    console.log(getUserTodos);
+    console.log(dataTodo);
+    return dataTodo;
   }
 
+
+  setTodoCompleted(todoID: string){
+    const todoRef = doc(this.todoCollection, todoID);
+    updateDoc(todoRef, {completed:true});
+
+
+
+  }
 
 }

@@ -1,33 +1,21 @@
-<div class="dashboard-container">
-    <nav class="sidebar">
-      <div class="sidebar-header">
-        <h3>Todo App</h3>
-      </div>
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="home" routerLinkActive="active">
-            <i class="fas fa-home"></i> Home
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="add-todo" routerLinkActive="active">
-            <i class="fas fa-plus"></i> Add Todo
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="delete-todo" routerLinkActive="active">
-            <i class="fas fa-trash"></i> Delete Todo
-          </a>
-        </li>
-      </ul>
-      <div class="sidebar-footer">
-        <button class="btn btn-outline-danger" (click)="SignOut()">
-          <i class="fas fa-sign-out-alt"></i> Sign Out
-        </button>
-      </div>
-    </nav>
-  
-    <main class="main-content">
-      <router-outlet></router-outlet>
-    </main>
+<header class="d-flex justify-content-between align-items-center px-4 py-3 bg-primary text-white">
+  <div class="d-flex align-items-center gap-4">
+    <h2 class="m-0"><i class="fas fa-tasks me-2"></i>Todo App</h2>
+    <a class="text-white text-decoration-none" routerLink="home" routerLinkActive="fw-bold">
+      <i class="fas fa-home me-1"></i> Home
+    </a>
+    <a class="text-white text-decoration-none" routerLink="add-todo" routerLinkActive="fw-bold">
+      <i class="fas fa-plus me-1"></i> Add Todo
+    </a>
+    <a class="text-white text-decoration-none" routerLink="delete-todo" routerLinkActive="fw-bold">
+      <i class="fas fa-trash me-1"></i> Delete Todo
+    </a>
   </div>
+  <button class="btn btn-outline-light" (click)="SignOut()">
+    <i class="fas fa-sign-out-alt me-1"></i> Sign Out
+  </button>
+</header>
+
+<main class="p-4">
+  <router-outlet></router-outlet>
+</main>
