@@ -14,6 +14,12 @@
         <td>{{todo.description}}</td>
         <td>{{todo.createdAt.toDate() | date:'dd/MM/yyyy'}}</td>
         <td>{{todo.completed}}</td>
-        <td><button class ="btn btn-primary"(click)="setTodoCompleted(todo.id!)">Mark as Completed</button></td>
+        <td> @if(!todo.completed){
+            <button class ="btn btn-primary"(click)="setTodoCompleted(todo.id!)">Mark as Completed</button>
+        }
+        @if(todo.completed){
+            <button class ="btn btn-primary" disabled>Mark as Completed</button>
+        }
+        </td>
     </tr>
 </table>

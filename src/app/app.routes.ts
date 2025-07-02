@@ -12,7 +12,8 @@ export const routes: Routes = [
     {path:'login' , component:Login},
     {path:'dashboard', component:Dashboard, canActivate:[AuthGuard],
      children :
-    [
+    [   
+        {path:'', redirectTo:'home', pathMatch:'full'},
         {path:'home' , component:Home},
         {path:'add-todo', component:AddTodo},
         {path:'delete-todo',component:DeleteTodos}
