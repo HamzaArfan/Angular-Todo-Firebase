@@ -7,5 +7,5 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
 })
 export class App {
-  protected title = 'firebaseauth';
+  protected title = 'Todo App Firebase';
 }
